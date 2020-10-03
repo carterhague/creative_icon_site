@@ -1,0 +1,173 @@
+//Vars
+
+:root {
+  --rad: 0.7rem;
+  --dur: 0.3s;
+  --color-dark: #2e3033;
+  --color-light: #f3f3f3;
+  --color-brand: #f3d060;
+  --font-fam: 'Lato', sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+// Setup
+body {
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 10px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+// Main styles
+form {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30rem;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+}
+
+button,
+input {
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+}
+
+input[type="search"] {
+  outline: 0; // <-- shold probably remove this for better accessibility, adding for demo aesthetics for now.
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
+button {
+  display: none; // prevent being able to tab to it
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+
+  + button {
+    display: block;
+  }
+}
+
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.footer {
+	padding: 5px;
+	position: fixed;
+	justify-content: center;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: var(--color-brand);
+	text-align: center;
+}
+
+.footer img {
+	height: 10px;
+	vertical-align: center;
+}
+
+a { /* changes how a link looks when you interact with it*/
+  font-family: var(--font-fam);
+  color: var(--color-dark);
+}
+
+a:link {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--color-dark);
+}
+a:hover {
+  color: var(--color-light);
+  text-decoration: none;
+}
+a:active {
+  color: red;
+}
+
+div {
+  display: block;
+}
+
+.content {
+	width: 100%;
+}
+
+#searchResults {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.searchResult {
+	margin: 10px;
+	display: block;
+	width: 40%;
+}
+
+.imageContainer {
+	padding: 10px;
+	border-radius: var(--rad) var(--rad) 0 0;
+	background: var(--color-light);
+	display: block;
+}
+
+.imageContainer img {
+  max-width:100%;
+  max-height:100%;
+  object-fit: contain;
+}
+
+.downloadLink {
+	padding: 10px;
+	border-radius: 0 0 var(--rad) var(--rad);
+	background: var(--color-brand);
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	font-family: var(--font-fam);
+}
