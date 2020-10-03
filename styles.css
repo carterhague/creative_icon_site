@@ -31,6 +31,8 @@ html {
 }
 
 form {
+	display: flex;
+	flex-wrap: wrap;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
