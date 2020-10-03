@@ -135,6 +135,7 @@ div {
 
 .content {
 	width: 100%;
+  margin-bottom: 20px;
 }
 
 #searchResults {
@@ -144,12 +145,13 @@ div {
 }
 
 .searchResult {
-	margin: 10px;
+	margin: 15px;
 	display: block;
-	width: 40%;
+	width: 80%;
 }
 
 .imageContainer {
+  justify-content: center;
 	padding: 10px;
 	border-radius: var(--rad) var(--rad) 0 0;
 	background: var(--color-light);
@@ -170,4 +172,22 @@ div {
 	text-align: center;
 	font-size: 20px;
 	font-family: var(--font-fam);
+}
+
+@media only screen and (min-width: 1024px) {
+  .searchResult {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .searchResult {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 50px) {
+  .searchResult {
+    width: 80%;
+  }
 }
